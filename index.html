@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>
+        .borda{
+            border: 1px solid;
+        }
+
+        .div-principal{
+            width: 200px;
+            height: 200px;
+        }
+
+        .div-comum{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+
+        .verde{
+            background-color: green;
+        }
+
+        .azul{
+            background-color: blue;
+        }
+
+        .amarelo{
+            background-color: yellow;
+        }
+
+        .branco{
+            background-color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+       <div @click="mudaCor('branco')" class="borda div-principal" :class="cor">
+           cor: {{cor}}
+       </div>
+       <hr>
+       <div @click="mudaCor('verde')" @mouseover="mudaCor('verde')" @mouseout="mudaCor('branco')" class="borda div-comum"></div>
+       <div @click="mudaCor('azul')" @mouseover="mudaCor('azul')" @mouseout="mudaCor('branco')" class="borda div-comum"></div>
+       <div @click="mudaCor('amarelo')" @mouseover="mudaCor('amarelo')" @mouseout="mudaCor('branco')" class="borda div-comum"></div>
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data:{
+              cor: 'branco'
+            },
+            methods:{
+                mudaCor(c){
+                    this.cor = c
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
